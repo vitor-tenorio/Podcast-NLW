@@ -10,6 +10,8 @@ import Image from "next/image";
 
 import styles from "./episode.module.scss";
 
+import { usePlayer } from "../../contexts/PlayerContext";
+
 type Episode = {
   id: string;
   title: string;
@@ -27,6 +29,8 @@ type EpisodeProps = {
 };
 
 export default function Episode({ episode }: EpisodeProps) {
+  const { play } = usePlayer();
+
   return (
     <div className={styles.episode}>
       <div className={styles.thumbnailContainer}>
@@ -43,7 +47,7 @@ export default function Episode({ episode }: EpisodeProps) {
           alt={episode.title}
           objectFit="cover"
         />
-        <button type="button">
+        <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar episódio" />
         </button>
       </div>
