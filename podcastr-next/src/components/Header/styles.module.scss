@@ -23,4 +23,12 @@
     margin-left: auto;
     text-transform: capitalize;
   }
+  @media (max-width: 768px) {
+    p {
+      margin-left: auto;
+    }
+    span {
+      display: none;
+    }
+  }
 }

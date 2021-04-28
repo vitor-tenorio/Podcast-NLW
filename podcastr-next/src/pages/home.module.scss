@@ -1,12 +1,17 @@
 .homePage {
   padding: 0 4rem;
   height: calc(100vh - 6.5rem);
+  position: relative;
 
   overflow-y: scroll;
 
   h2 {
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    height: 100%;
+    margin-bottom: 100px;
   }
 }
 
@@ -107,6 +112,15 @@
       }
     }
   }
+  @media (max-width: 768px) {
+    ul {
+      overflow-x: scroll;
+      width: 120vw;
+      .image {
+        display: none;
+      }
+    }
+  }
 }
 
 .allEpisodes {
@@ -167,6 +181,12 @@
           filter: brightness(0.92);
         }
       }
+    }
+  }
+  @media (max-width: 768px) {
+    td:first-child,
+    th:first-child {
+      display: none;
     }
   }
 }

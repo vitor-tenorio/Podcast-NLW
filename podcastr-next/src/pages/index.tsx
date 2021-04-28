@@ -49,6 +49,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                   src={episode.thumbnail}
                   alt={episode.title}
                   objectFit="cover"
+                  className={styles.image}
                 />
 
                 <div className={styles.episodeDetails}>
