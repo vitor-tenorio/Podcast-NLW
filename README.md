@@ -1,5 +1,3 @@
-# Podcastr
-
 ![Logo Podcastr](/podcastr-next/public/logo.svg)
 
 
