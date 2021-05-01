@@ -1,0 +1,321 @@
+swagger: '2.0'
+info:
+  description: "Documentação da API do projeto. Para editar esse arquivo é recomendado utilizar a extensão do VSCode 'Swagger Viewer'"
+  version: '1.0.0'
+  title: 'Projeto'
+host: 'https://exemplo.compjunior.com.br/'
+basePath: '/api'
+tags:
+  - name: 'exemplo'
+    description: 'Operações relacionadas ao exemplo'
+  - name: 'usuario'
+    description: 'Operações relacionadas aos usuários'
+schemes:
+  - 'https'
+paths:
+  /exemplo:
+    get:
+      tags:
+        - 'exemplo'
+      summary: 'RESUMO EXEMPLO GET'
+      description: 'DESCRIÇÃO EXEMPLO GET'
+      operationId: 'login'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'Deu tudo certo'
+          schema:
+            type: 'array'
+            items:
+              type: 'object'
+              properties:
+                dado:
+                  type: 'string'
+                  example: 'exemplo'
+                dado2:
+                  type: 'string'
+                  example: 'exemplo2'
+        '400':
+          description: 'Bad request'
+        '500':
+          description: 'Internal server error'
+    post:
+      tags:
+        - 'exemplo'
+      summary: 'RESUMO EXEMPLO POST'
+      description: 'DESCRIÇÃO EXEMPLO POST'
+      operationId: 'signUp'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados de cadastro do usuário'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              dado:
+                type: 'string'
+                example: 'exemplo'
+              dado2:
+                type: 'string'
+                example: 'exemplo2'
+      responses:
+        '200':
+          description: 'Deu tudo certo'
+        '400':
+          description: 'Bad request'
+        '500':
+          description: 'Internal server error'
+
+  /usuario:
+    get:
+      tags:
+        - 'usuario'
+      summary: 'Obtém todos os usuários do sistema'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: 'OK'
+          schema:
+            type: 'array'
+            items:
+              $ref: '#/definitions/User'
+        '401':
+          description: 'No valid token provided / User not allowed to access this resource'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+  /usuario/inscrever:
+    post:
+      tags:
+        - 'usuario'
+      summary: 'Inscreve o usuário em uma palestra'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados da palestra e do usuário'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              idPalestra:
+                type: 'string'
+              idUsuario:
+                type: 'string'
+                example: 'Opcional se mandar o token na requisição'
+      responses:
+        '200':
+          description: 'OK'
+        '400':
+          description: 'Usuário já isncrito na palestra'
+        '401':
+          description: 'No valid token provided / User not allowed to access this resource'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+  /usuario/inscricao:
+    delete:
+      tags:
+        - 'usuario'
+      summary: 'Deleta inscrição do usuário'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados da palestra e do usuário'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              idInscricao:
+                type: 'string'
+      responses:
+        '200':
+          description: 'OK'
+        '400':
+          description: 'Id da inscrição não fornecido'
+        '403':
+          description: 'No valid token provided / User not allowed to access this resource'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+  /usuario/palestras-inscritas:
+    get:
+      tags:
+        - 'usuario'
+      summary: 'Obtém as palestras nas quais o usuário se inscreveu'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados da palestra e do usuário'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              idUsuario:
+                type: 'string'
+                example: 'Opcional se mandar o token na requisição'
+              dia:
+                type: 'string'
+                example: '19'
+      responses:
+        '200':
+          description: 'OK'
+          schema:
+            type: 'object'
+            properties:
+              palestra:
+                type: 'string'
+                example: 'Dados da palestra'
+              streamingTime:
+                type: 'string'
+                example: 'Tempo que o usuário assistiu a palestra'
+              gerarCertificado:
+                type: 'string'
+                example: 'Se o usuário pode ou não gerar certificado'
+        '401':
+          description: 'No valid token provided / User not allowed to access this resource'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+  /usuario/streaming:
+    post:
+      tags:
+        - 'usuario'
+      summary: 'Registra o tempo que o usuário ficou na palestra'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados da palestra e do usuário'
+          required: true
+          schema:
+            type: 'object'
+            properties:
+              idPalestra:
+                type: 'string'
+              time:
+                type: 'string'
+                example: 'Tempo em segundos que o usuário assistiu a palestra (função será chamada de x em x segundos, aí manda esse x)'
+      responses:
+        '200':
+          description: 'OK'
+        '400':
+          description: 'Time ou idPalestra não enviados/Tempo de registro muito curto/ Horário fora de exibição'
+        '401':
+          description: 'No valid token provided / User not allowed to access this resource'
+        '404':
+          description: 'Inscrição não encontrada'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+  /usuario/gerar-certificado:
+    get:
+      tags:
+        - 'usuario'
+      summary: 'Gera um certificado com o tempo que o usuario ficou em uma palestra'
+      description: ''
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'query'
+          name: 'token'
+          type: 'string'
+          description: 'Token do usuário'
+      responses:
+        '200':
+          description: 'OK'
+        '401':
+          description: 'Tempo mínimo de visualização não atingido'
+        '404':
+          description: 'Inscrição não encontrada'
+        '500':
+          description: 'Internal server error'
+      security:
+        - petstore_auth:
+            - 'write:palestrantes'
+
+securityDefinitions:
+  petstore_auth:
+    type: 'oauth2'
+    authorizationUrl: 'http://petstore.swagger.io/oauth/dialog'
+    flow: 'implicit'
+    scopes:
+      write:palestrantes: 'modify pets in your account'
+  api_key:
+    type: 'apiKey'
+    name: 'api_key'
+    in: 'header'
+definitions:
+  User:
+    type: 'object'
+    properties:
+      id:
+        type: 'string'
+      name:
+        type: 'string'
+      email:
+        type: 'string'
+      cpf:
+        type: 'string'
+      studentCode:
+        type: 'string'
+      course:
+        type: 'string'
+      password:
+        type: 'string'
+  Palestrante:
+    type: 'object'
+    properties:
+      id:
+        type: 'string'
+      name:
+        type: 'string'
+      institution:
+        type: 'string'
+      photo:
+        type: 'string'
+externalDocs:
+  description: 'Find out more about Swagger'
+  url: 'http://swagger.io'
