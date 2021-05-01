@@ -1,6 +1,6 @@
 # Podcastr         ![Logo Podcastr](/podcastr-next/public/favicon.png)
 
-##### Podcastr é projeto desenvolvido com NextJS a partir do evento Next Level Week, promovido pela RocketSeat. Basicamente, o sistema exibe os podcast's cadastrados, com seus dados, além de tocar o áudio do podcast selecionado.
+##### Podcastr é projeto desenvolvido com NextJS a partir do evento Next Level Week, promovido pela RocketSeat. O sistema exibe os podcast's cadastrados, com seus dados, além de tocar o áudio do podcast selecionado. O back-end foi desenvolvido por conta própria, além de ser adicionado o tratamento da responsividade.
 
 ## Pré-requisitos
 
