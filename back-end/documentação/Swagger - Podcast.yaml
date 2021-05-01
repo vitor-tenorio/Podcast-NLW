@@ -1,0 +1,204 @@
+swagger: '2.0'
+info:
+  description: "Documentação da API do projeto. Para editar esse arquivo é recomendado utilizar a extensão do VSCode 'Swagger Viewer'"
+  version: '1.0.0'
+  title: 'Podcastr'
+host: 'localhost:3333'
+basePath: '/episodes'
+tags:
+  - name: 'Podcastr'
+    description: 'Operações relacionadas ao podcast'
+schemes:
+  - 'https'
+paths:
+  /:
+    get:
+      tags:
+        - 'Podcastr'
+      summary: 'Get de todos os Podcasts'
+      description: 'Get de todos os Podcasts'
+      operationId: 'getEpisodes'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/EpisodeArray'
+        '500':
+          description: '{ erro : "Erro interno do servidor" }'
+    post:
+      tags:
+        - 'Podcastr'
+      summary: 'Cria um novo episódio'
+      description: 'Cria um novo episódio'
+      operationId: 'postEpisode'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          description: 'Dados de cadastro de um episódio'
+          required: true
+          schema:
+            $ref: '#/definitions/InsertEpisode'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Episode'
+        '400':
+          description: '{ erro: "Já existe um artigo cadastrado com esse título" } ou <br>
+          { erro: "O campo título é obrigatório" } ou <br>
+          { erro: "O campo membros é obrigatório" } ou <br>
+          { erro: "O campo descrição é obrigatório" } ou <br>
+          { erro: "O campo thumbnail é obrigatório" } ou <br>
+          { erro: "O campo file é obrigatório" }'
+        '500':
+          description: '{ erro : "Erro interno do servidor" }'
+  /{slug}:
+    get:
+      tags:
+        - 'Podcastr'
+      summary: 'Get de todos os Podcasts'
+      description: 'Get de todos os Podcasts'
+      operationId: 'getEpisodes'
+      parameters:
+        - in: 'path'
+          name: slug
+          required: true
+          type: 'string'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Episode'
+        '500':
+          description: '{ erro : "Erro interno do servidor" }'
+  /{id}:  
+    put:
+      tags:
+        - 'Podcastr'
+      summary: 'Edita um episódio'
+      description: 'Edita um episódio'
+      operationId: 'editEpisode'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'path'
+          name: id
+          required: true
+          type: 'string'
+        - in: 'body'
+          name: 'body'
+          description: 'Dados de cadastro do usuário'
+          required: true
+          schema:
+            $ref: '#/definitions/InsertEpisode'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Episode'
+        '400':
+          description: '{ erro : "Já existe um artigo cadastrado com esse título" } ou <br>
+          { erro : "ID é obrigatório" } ou <br>
+          { erro : "ID inválido" }'
+        '404':
+          description: '{ erro : "Objeto não encontrado" }'
+        '500':
+          description: '{ erro : "Erro interno do servidor" }'
+    delete:
+      tags:
+        - 'Podcastr'
+      summary: 'Deleta um episódio'
+      description: 'Deleta um episódio'
+      operationId: 'deleteEpisode'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'path'
+          name: id
+          required: true
+          type: 'string'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/Episode'
+        '400':
+          description: '{ erro : "ID é obrigatório" } ou <br>
+          { erro : "ID inválido" }'
+        '404':
+          description: '{ erro : "Objeto não encontrado" }'
+        '500':
+          description: '{ erro : "Erro interno do servidor" }'
+definitions:
+  Episode:
+    type: 'object'
+    properties:
+      file:
+        type: 'object'
+        properties:
+          url:
+            type: 'string'
+          type:
+            type: 'string'
+          duration:
+            type: 'string'
+      _id:
+        type: 'string'
+      title:
+        type: 'string'
+      members:
+        type: 'string'
+      thumbnail:
+        type: 'string'
+      description:
+        type: 'string'
+      published_at:
+        type: 'string'
+      slug:
+        type: 'string'
+      __v:
+        type: 'string'
+  InsertEpisode:
+    type: 'object'
+    properties:
+      file:
+        type: 'object'
+        properties:
+          url:
+            type: 'string'
+          type:
+            type: 'string'
+          duration:
+            type: 'string'
+      title:
+        type: 'string'
+      members:
+        type: 'string'
+      thumbnail:
+        type: 'string'
+      description:
+        type: 'string'
+
+  EpisodeArray:
+    type: 'array'
+    items:
+      $ref: '#/definitions/Episode'
+externalDocs:
+  description: 'Find out more about Swagger'
+  url: 'http://swagger.io'
