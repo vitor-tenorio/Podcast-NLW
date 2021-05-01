@@ -10,6 +10,7 @@
 ## Iniciando...
 
 - `git clone https://github.com/VitorAndre/Podcast-NLW.git`
+- `cd Podcast-NLW`
 - `cd podcastr-next`
 - `yarn install`
 - `cd ../back-end`
