@@ -1,4 +1,8 @@
 .episode {
+  @media (max-width: 768px) {
+    margin-bottom: 180px;
+  }
+
   max-width: 45rem;
   padding: 3rem 2rem;
   margin: 0 auto;
