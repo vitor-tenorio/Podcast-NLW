@@ -30,4 +30,4 @@ Agora você poderá executar os vários comandos abaixo.
  `yarn server`
 
 ## Documentação API
-  A documentação Swagger se encontra no arquivo "Swagger - Podcastr.yaml" no caminho back-end/documentacao ou no link: <br> https://app.swaggerhub.com/apis/VitorAndre/Podcastr/1.0.0
+  A documentação Swagger se encontra no arquivo "Swagger - Podcastr.yaml" no caminho "back-end / documentação" ou no link: <br> https://app.swaggerhub.com/apis/VitorAndre/Podcastr/1.0.0
