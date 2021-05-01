@@ -4,7 +4,7 @@
 
 ## Pré-requisitos
 
-- `yarn --version`<br>
+ `yarn --version`<br>
   Para a execução do projeto é necessário ter instalado o gerenciador de pacotes yarn ou equivalente.
   
 ## Iniciando...
