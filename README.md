@@ -25,5 +25,5 @@ Agora você poderá executar os vários comandos abaixo.
  `yarn dev`<br>
   Para utilizar o back-end desenvolvido para a aplicação, basta rodar o comando acima, que irá iniciar o servidor.
   <br><br><br>
-  Para a execução de um servidor de teste, com dados já prontos, basta rodar o comando abaixo. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. <br>
+  Para a execução de um servidor de teste, com dados já prontos, basta rodar o comando abaixo na pasta podcastr-next. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. <br>
  `yarn server`
