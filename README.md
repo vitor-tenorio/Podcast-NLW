@@ -12,13 +12,18 @@
 - `git clone https://github.com/VitorAndre/Podcast-NLW.git`
 - `cd podcastr-next`
 - `yarn install`
+- `cd ../back-end`
+- `yarn install`
 
 Agora você poderá executar os vários comandos abaixo.
 
 ## Execução
-
-- `yarn dev`<br>
-  Para a execução do front-end utilizado, basta rodar o comando acima, com o servidor rodando ao mesmo tempo.
+  
+  Para a execução do front-end utilizado, basta rodar o comando abaixo, na pasta podcastr-next, com o servidor rodando ao mesmo tempo.<br>
+- `yarn dev`
   <br>
-  Para a execução do servidor de teste utilizado, basta rodar o comando abaixo. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. 
+  Para utilizar o back-end desenvolvido para a aplicação, basta rodar o comando abaixo, na pasta back-end, com o servidor rodando ao mesmo tempo.<br>
+- `yarn dev`
+  <br>
+  Para a execução de um servidor de teste, com dados já prontos, basta rodar o comando abaixo. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. 
 - `yarn server`<br>
