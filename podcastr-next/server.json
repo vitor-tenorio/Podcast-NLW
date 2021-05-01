@@ -1,6 +1,7 @@
 {
   "episodes": [
     {
+      "slug": "a-importancia-da-contribuicao-em-open-source",
       "id": "a-importancia-da-contribuicao-em-open-source",
       "title": "Faladev #30 | A importância da contribuição em Open Source",
       "members": "Diego Fernandes, João Pedro, Diego Haz e Bruno Lemos",
@@ -14,6 +15,7 @@
       }
     },
     {
+      "slug": "uma-conversa-sobre-programacao-funcional-e-orientacao-a-objetos",
       "id": "uma-conversa-sobre-programacao-funcional-e-orientacao-a-objetos",
       "title": "Faladev #29 | Duas perspectivas diferentes na mesa: uma conversa sobre PF e OOP",
       "members": "Diego Fernandes, Dani Leão, Laura Beatris e Rafael Camarda",
@@ -27,6 +29,7 @@
       }
     },
     {
+      "slug": "barreiras-e-solucoes-propostas-por-micro-servicos",
       "id": "barreiras-e-solucoes-propostas-por-micro-servicos",
       "title": "Faladev #28 | Por trás de barreiras e soluções propostas por micro-serviços",
       "members": "Diego Fernandes, Dani Leão, Wesley Williams e Lucas Santos",
@@ -40,6 +43,7 @@
       }
     },
     {
+      "slug": "aplicacao-de-arquiteturas-mvc-e-clean-architecture-na-pratica",
       "id": "aplicacao-de-arquiteturas-mvc-e-clean-architecture-na-pratica",
       "title": "Faladev #27 | Aplicação de arquiteturas MVC e CA na prática",
       "members": "Diego Fernandes, Dani Leão, Otávio Lemos e Rodrigo Branas",
@@ -53,6 +57,7 @@
       }
     },
     {
+      "slug": "entrevista-jose-valim-criador-do-elixir",
       "id": "entrevista-jose-valim-criador-do-elixir",
       "title": "Faladev #26 | Especial: entrevista exclusiva com José Valim, criador da linguagem Elixir",
       "members": "Diego Fernandes e José Valim",
@@ -66,6 +71,7 @@
       }
     },
     {
+      "slug": "o-que-e-ui-ux",
       "id": "o-que-e-ui-ux",
       "title": "Faladev #25 | O que é UX/UI?",
       "members": "Diego Fernandes, Tiago Luchtenberg e Thainan Librelon",
@@ -79,6 +85,7 @@
       }
     },
     {
+      "slug": "como-virar-lider-desenvolvimento",
       "id": "como-virar-lider-desenvolvimento",
       "title": "Faladev #24 | Como virar líder de desenvolvimento?",
       "members": "Diego Fernandes, João Paulo e Cleiton Souza",
@@ -92,6 +99,7 @@
       }
     },
     {
+      "slug": "comunidades-e-tecnologia",
       "id": "comunidades-e-tecnologia",
       "title": "FalaDev #23 | O que comunidades têm a ver com tecnologia?",
       "members": "Diego Fernandes, Isabela Castilho e João Inácio",
@@ -105,6 +113,7 @@
       }
     },
     {
+      "slug": "typescript-vale-a-pena",
       "id": "typescript-vale-a-pena",
       "title": "FalaDev #22 - TypeScript vale a pena? JavaScript perde sentido?",
       "members": "Diego Fernandes, Mayk Brito e João Pedro",
@@ -118,6 +127,7 @@
       }
     },
     {
+      "slug": "estrategias-de-autenticacao-jwt-oauth",
       "id": "estrategias-de-autenticacao-jwt-oauth",
       "title": "FalaDev #21 - Estratégias de autenticação, JWT, OAuth, qual usar?",
       "members": "Diego Fernandes, Higo Ribeiro e Guilherme Pellizzetti",
