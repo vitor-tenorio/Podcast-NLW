@@ -17,8 +17,7 @@ Agora você poderá executar os vários comandos abaixo.
 
 ## Execução
 
-- `yarn server`<br>
-  Para a execução do servidor de teste utilizado, basta rodar o comando acima.
-
 - `yarn dev`<br>
   Para a execução do front-end utilizado, basta rodar o comando acima, com o servidor rodando ao mesmo tempo.
+  Para a execução do servidor de teste utilizado, basta rodar o comando abaixo. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. 
+- `yarn server`<br>
