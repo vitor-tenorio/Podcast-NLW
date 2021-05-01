@@ -19,11 +19,11 @@ Agora você poderá executar os vários comandos abaixo.
 
 ## Execução
   
-- `yarn dev`<br>
+ `yarn dev`<br>
   Para a execução do front-end utilizado, basta rodar o comando acima, na pasta podcastr-next, com o servidor rodando ao mesmo tempo.
   <br><br>
-- `yarn dev`<br>
+ `yarn dev`<br>
   Para utilizar o back-end desenvolvido para a aplicação, basta rodar o comando acima, na pasta back-end, com o servidor rodando ao mesmo tempo.
-  <br><br>
+  <br><br><br>
   Para a execução de um servidor de teste, com dados já prontos, basta rodar o comando abaixo. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. 
-- `yarn server`<br>
+ `yarn server`<br>
