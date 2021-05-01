@@ -1,19 +1,21 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import router from './app/controllers/index'
-import frontUrl from './config/urls'
+import router from './app/controllers/index';
+import frontUrl from './config/urls';
 
 const app = express();
-app.disable("x-powered-by")
+app.disable('x-powered-by');
 
-const port = process.env.NODE_ENV === 'production' ? 5000 : 3000;
+const port = 3333;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors({
-  origin: frontUrl
-}))
+app.use(
+  cors({
+    origin: frontUrl,
+  }),
+);
 
 app.use(router);
 

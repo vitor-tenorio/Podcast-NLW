@@ -14,7 +14,7 @@ import styles from "./episode.module.scss";
 import { usePlayer } from "../../contexts/PlayerContext";
 
 type Episode = {
-  id: string;
+  slug: string;
   title: string;
   thumbnail: string;
   description: string;
@@ -83,7 +83,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data } = await api.get(`/episodes/${slug}`);
 
   const episode = {
-    id: data.id,
+    slug: data.slug,
     title: data.title,
     thumbnail: data.thumbnail,
     members: data.members,

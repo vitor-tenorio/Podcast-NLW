@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Podcast from '@/app/schemas/Podcast';
 import { isValidObjectId } from 'mongoose';
+import Slugify from '@/utils/Slugify';
 
 const router = new Router();
 
@@ -19,13 +20,24 @@ const checkData = (title, members, thumbnail, description, file) => {
 };
 
 //ver questão dos arquivos
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const { title, members, thumbnail, description, file } = req.body;
-  //checkdata
+
+  const erro = checkData(title, members, thumbnail, description, file);
+  if (erro) {
+    return res.status(400).send({ erro });
+  }
+  const podcast = await Podcast.findOne({ slug: Slugify(title) });
+
+  if (podcast) {
+    return res
+      .status(400)
+      .send({ erro: 'Já existe um artigo cadastrado com esse título' });
+  }
 
   Podcast.create({ title, members, thumbnail, description, file })
     .then((resultado) => {
-      return res.send(resultado);
+      return res.status(200).send(resultado);
     })
     .catch((err) => {
       console.error(err, 'Erro ao criar objeto');
@@ -44,10 +56,30 @@ router.get('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.get('/:slug', (req, res) => {
+  const { slug } = req.params;
+  Podcast.findOne({ slug })
+    .then((resultado) => {
+      return res.send(resultado);
+    })
+    .catch((err) => {
+      console.error(err, 'Erro ao listar objetos');
+      return res.status(500).send({ erro: 'Erro interno do servidor' });
+    });
+});
+
+router.put('/:id', async (req, res) => {
   const id = req.params.id;
   const { title, members, thumbnail, description, file } = req.body;
+  const podcast = await Podcast.findOne({ slug: Slugify(title) });
 
+  if (podcast) {
+    if (podcast._id != id) {
+      return res
+        .status(400)
+        .send({ erro: 'Já existe um artigo cadastrado com esse título' });
+    }
+  }
   if (!id) return res.status(400).send({ erro: 'ID é obrigatório' });
   if (!isValidObjectId(id))
     return res.status(400).send({ erro: 'ID inválido' });

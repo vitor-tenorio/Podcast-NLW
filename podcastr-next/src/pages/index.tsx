@@ -12,7 +12,7 @@ import { usePlayer } from "../contexts/PlayerContext";
 import Head from "next/head";
 
 type Episode = {
-  id: string;
+  slug: string;
   title: string;
   thumbnail: string;
   members: string;
@@ -42,7 +42,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
         <ul>
           {latestEpisodes.map((episode, index) => {
             return (
-              <li key={episode.id}>
+              <li key={episode.slug}>
                 <Image
                   width={192}
                   height={192}
@@ -53,7 +53,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                 />
 
                 <div className={styles.episodeDetails}>
-                  <Link href={`/episodes/${episode.id}`}>
+                  <Link href={`/episodes/${episode.slug}`}>
                     <a>{episode.title}</a>
                   </Link>
                   <p>{episode.members}</p>
@@ -87,7 +87,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           <tbody>
             {allEpisodes.map((episode, index) => {
               return (
-                <tr key={episode.id}>
+                <tr key={episode.slug}>
                   <td style={{ width: 72 }}>
                     <Image
                       width={120}
@@ -98,7 +98,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                     />
                   </td>
                   <td>
-                    <Link href={`/episodes/${episode.id}`}>
+                    <Link href={`/episodes/${episode.slug}`}>
                       <a>{episode.title}</a>
                     </Link>
                   </td>
@@ -135,7 +135,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const episodes = data.map((episode) => {
     return {
-      id: episode.id,
+      slug: episode.slug,
       title: episode.title,
       thumbnail: episode.thumbnail,
       members: episode.members,

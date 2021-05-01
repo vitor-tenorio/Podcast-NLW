@@ -8,7 +8,6 @@ const PodcastSchema = new mongoose.Schema({
   },
   slug: {
     type: String,
-    required: true,
   },
   members: {
     type: String,
@@ -23,14 +22,26 @@ const PodcastSchema = new mongoose.Schema({
     required: true,
   },
   file: {
-    type: String,
-    required: true,
+    url: {
+      type: String,
+    },
+    duration: {
+      type: Number,
+    },
+    type: {
+      type: String,
+    },
+  },
+  published_at: {
+    type: Date,
+    default: Date.now,
   },
 });
 
 PodcastSchema.pre('save', function (next) {
   const title = this.title;
   this.slug = Slugify(title);
+  next();
 });
 
 export default mongoose.model('Podcast', PodcastSchema);

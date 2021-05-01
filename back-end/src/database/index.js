@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect('mongodb://localhost/base-backend', {
+mongoose.connect('mongodb://localhost/back_podcastr', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
