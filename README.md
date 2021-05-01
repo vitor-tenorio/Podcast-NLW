@@ -4,7 +4,7 @@
 
 ## Pré-requisitos
 
-- `yarn --version`<br>
+ `yarn --version`<br>
   Para a execução do projeto é necessário ter instalado o gerenciador de pacotes yarn ou equivalente.
   
 ## Iniciando...
@@ -28,3 +28,6 @@ Agora você poderá executar os vários comandos abaixo.
   <br><br><br>
   Para a execução de um servidor de teste, com dados já prontos, basta rodar o comando abaixo na pasta podcastr-next. Neste caso o servidor seria utilizado para evitar inserções no back-end próprio, agilizando o processo. <br>
  `yarn server`
+
+## Documentação API
+  A documentação Swagger se encontra no arquivo "Swagger - Podcastr.yaml" no caminho "back-end / documentação" ou no link: <br> https://app.swaggerhub.com/apis/VitorAndre/Podcastr/1.0.0
